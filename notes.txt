@@ -1,0 +1,72 @@
+ok, so let's start off by parsing input
+we are going to receive as input a text file with the following format
+
+French ftest1.txt 
+French ftest2.txt 
+Dutch nl1.txt 
+Croatian hr2.txt 
+Italian itest1.txt 
+German gt.txt 
+Unknown ut1.txt 
+English eng1.txt  
+Unknown utest3.txt 
+Spanish st3.txt
+
+so we iterate through each line of text. the first word of the line is the language, which would correspond to a name of a vector
+we add this language to a dictionary that maps from language to vector
+
+then, the second word of the line is a filepath that leads to a text file. from this textfile construct the corresponding 
+language's vector. we keep the vector in terms of counts. in this way, we don't have to convert between frequencies and counts
+everytime we add a new document to a language's vector. 
+
+when the language is "Unknown", we add it to a seperate dictionary (perhaps a list of tuples from document to vector, to keep 
+it separate from the known languages).
+
+once these two dictionaries are constructed, 
+we loop through each element in the unknown dictionary, and we write to the output file the cosine similarity of the unknown
+document's vector with that of every language. 
+
+the output file should be formatted like the following: 
+
+
+ut1
+    French xx
+    Spanish xx
+    Italian
+    English xx
+utest3
+    German xx
+    English xx
+    Spanish xx
+
+
+how many trigrams are there for a string of length n >= 3? 
+
+for the base case n = 3, there is 1 trigrams
+for the case in which n = 4, we observe the string "test" as an example
+there are 2 trigrams, "tes" and "est"
+as such, there are n-2 trigrams for a string of length 2
+
+ok, so we're going to try and flesh out this idea
+when we parse through the input text file and add languages to our knownLanguages dictionary, 
+we don't map from language to accumulated vector, we map from language to dictionary which maps from 
+trigram to count
+
+when we first encounter a language in our input text file, we initialize its value from the language to output of a function
+that initializes our dictionary vector
+ 
+in this dictionary vector initialization function, we add all possible trigrams from aaa to ___ and set their count to zero
+
+if we are encountering a language for a second or third time, we call the constructVector method, give it the language it must
+edit, and add to that language's dictionary 
+
+
+
+
+now that we have populated our dictionary of known languages and our dictionary of, we want to use compare each unknown
+document with each known language's vector using cosine similarity
+
+we iterate through each unknown document in the _unknownDocuments_ dictionary, and for each of these documents, we iterate
+through each language vector in _knownLanguages_
+
+we then take the two dictionaries and perform cosine similarity on them

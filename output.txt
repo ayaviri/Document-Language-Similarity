@@ -1,0 +1,24 @@
+croatian2.txt
+    Croatian 0.762533181255
+    Romanian 0.337227597729
+    Spanish 0.244848950234
+    French 0.225436423227
+    English 0.216104745606
+    Dutch 0.185973215446
+    German 0.171526247748
+german1.txt
+    German 0.850294880622
+    Dutch 0.604943157872
+    French 0.390431549878
+    Spanish 0.352843345804
+    Romanian 0.338311702329
+    English 0.307187446844
+    Croatian 0.164643889614
+english5.txt
+    English 0.873360428886
+    French 0.392216796418
+    Romanian 0.366314636415
+    German 0.356969300734
+    Spanish 0.311765737469
+    Dutch 0.303879427922
+    Croatian 0.202724591237
